@@ -88,8 +88,7 @@ https://lheng2386-png.github.io/iterative-method-slidev/
 
 > 完成了一个基于 Slidev + Markdown + GitHub Pages 的算法可视化课件项目，主题为《迭代算法》。项目将递推法、倒推法、欧几里得算法、杨辉三角、牛顿迭代法和二分法等内容进行结构化讲解，并通过 GitHub Actions 实现自动化网页部署。
 
-method
-```
+
 
 ## 作者
 
