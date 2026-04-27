@@ -1,0 +1,93 @@
+:root {
+  --slidev-theme-primary: #1f6f78;
+  --ink: #172033;
+  --muted: #65748b;
+  --accent: #d97706;
+  --soft: #eef7f6;
+}
+
+.slidev-layout {
+  color: var(--ink);
+  font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background:
+    linear-gradient(90deg, rgba(31, 111, 120, 0.08), transparent 34%),
+    linear-gradient(180deg, #ffffff 0%, #f8fbfb 100%);
+}
+
+.slidev-layout h1 {
+  color: #0f4f59;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.slidev-layout h2,
+.slidev-layout h3 {
+  color: #163f49;
+  font-weight: 750;
+  letter-spacing: 0;
+}
+
+.slidev-layout p,
+.slidev-layout li {
+  line-height: 1.55;
+}
+
+.slidev-layout code,
+.slidev-layout pre {
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+}
+
+.slidev-layout pre {
+  border: 1px solid rgba(31, 111, 120, 0.16);
+  box-shadow: 0 10px 30px rgba(17, 32, 51, 0.08);
+}
+
+.kicker {
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.formula {
+  color: #0f4f59;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.note {
+  border-left: 5px solid var(--accent);
+  padding-left: 1rem;
+  color: #344256;
+}
+
+.diagram {
+  max-height: 330px;
+  margin: 0 auto;
+}
+
+.small {
+  font-size: 0.88rem;
+}
+
+.tight li {
+  margin: 0.1rem 0;
+}
