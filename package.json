@@ -1,0 +1,19 @@
+{
+  "name": "iterative-method-slidev",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "export": "slidev export --format pptx",
+    "format": "prettier --write slides.md README.md"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.49.29",
+    "@slidev/theme-default": "^0.25.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  }
+}
