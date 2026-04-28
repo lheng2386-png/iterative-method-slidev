@@ -1,6 +1,7 @@
 ---
 theme: default
 title: 迭代法
+colorSchema: light
 info: |
   基于《算法设计与分析》第 4 章 4.1 迭代算法内容，使用 Slidev + Markdown 代码化制作。
 class: text-center
