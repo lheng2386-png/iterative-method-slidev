@@ -1,35 +1,41 @@
 :root {
-  --slidev-theme-primary: #1f6f78;
+  --slidev-theme-primary: #0f766e;
   --ink: #172033;
-  --muted: #65748b;
+  --muted: #64748b;
   --accent: #d97706;
   --soft: #eef7f6;
+  --title: #0f4f59;
+  --formula: #0f766e;
 }
 
 .slidev-layout {
   color: var(--ink);
   font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   background:
-    linear-gradient(90deg, rgba(31, 111, 120, 0.08), transparent 34%),
+    linear-gradient(90deg, rgba(15, 118, 110, 0.08), transparent 34%),
     linear-gradient(180deg, #ffffff 0%, #f8fbfb 100%);
 }
 
 .slidev-layout h1 {
-  color: #0f4f59;
-  font-weight: 800;
-  letter-spacing: 0;
+  color: var(--title);
+  font-weight: 850;
 }
 
 .slidev-layout h2,
 .slidev-layout h3 {
-  color: #163f49;
-  font-weight: 750;
-  letter-spacing: 0;
+  color: #164e63;
+  font-weight: 780;
 }
 
 .slidev-layout p,
 .slidev-layout li {
+  color: var(--ink);
   line-height: 1.55;
+}
+
+.slidev-layout strong {
+  color: var(--accent);
+  font-weight: 850;
 }
 
 .slidev-layout code,
@@ -38,16 +44,32 @@
 }
 
 .slidev-layout pre {
-  border: 1px solid rgba(31, 111, 120, 0.16);
+  border: 1px solid rgba(15, 118, 110, 0.16);
   box-shadow: 0 10px 30px rgba(17, 32, 51, 0.08);
 }
 
 .kicker {
   color: var(--accent);
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.85rem;
+}
+
+.note {
+  border-left: 5px solid var(--accent);
+  padding-left: 1rem;
+  color: #344256;
+}
+
+.highlight {
+  color: var(--accent);
+  font-weight: 850;
+}
+
+.key {
+  color: var(--title);
+  font-weight: 850;
 }
 
 .muted {
@@ -55,9 +77,9 @@
 }
 
 .formula {
-  color: #0f4f59;
+  color: var(--formula);
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .two-col {
@@ -73,12 +95,6 @@
   gap: 1rem;
 }
 
-.note {
-  border-left: 5px solid var(--accent);
-  padding-left: 1rem;
-  color: #344256;
-}
-
 .diagram {
   max-height: 330px;
   margin: 0 auto;
@@ -91,4 +107,3 @@
 .tight li {
   margin: 0.1rem 0;
 }
-/* 只隐藏右上角 Goto 跳转框，不影响
