@@ -303,3 +303,48 @@ body,
 .slidev-layout h3 {
   color: #0f4f59 !important;
 }
+/* ===== 强制浅色模式，防止默认黑色模式 ===== */
+html,
+body,
+#app,
+#page-root,
+.slidev-layout,
+.slidev-page,
+.slidev-page-root {
+  color-scheme: light !important;
+  background: #ffffff !important;
+}
+
+html.dark,
+html.dark body,
+html.dark #app,
+html.dark #page-root {
+  background: #ffffff !important;
+}
+
+.dark .slidev-layout {
+  color: #172033 !important;
+  background:
+    linear-gradient(90deg, rgba(15, 118, 110, 0.08), transparent 34%),
+    linear-gradient(180deg, #ffffff 0%, #f8fbfb 100%) !important;
+}
+
+.dark .slidev-layout h1,
+.dark .slidev-layout h2,
+.dark .slidev-layout h3,
+.dark .slidev-layout p,
+.dark .slidev-layout li {
+  color: #172033 !important;
+}
+
+.dark .note,
+.dark .mark-box,
+.dark .scribble-box {
+  color: #172033 !important;
+  background: rgba(255, 248, 248, 0.96) !important;
+}
+
+.dark .slidev-layout :not(pre) > code {
+  color: #0f4f59 !important;
+  background: rgba(15, 118, 110, 0.10) !important;
+}
