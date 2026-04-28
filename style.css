@@ -318,3 +318,74 @@ body,
     font-size: 0.96rem;
   }
 }
+/* ===== 最终强制：把 Slidev / Shiki 代码块改成浅色背景 ===== */
+
+/* 代码块外壳、Shiki 容器、pre 全部压成浅色 */
+.slidev-code-wrapper,
+.slidev-code,
+.shiki,
+.shiki-container,
+.slidev-layout .shiki,
+.slidev-layout .slidev-code,
+.slidev-layout .slidev-code-wrapper,
+.slidev-layout pre,
+.slidev-layout pre.shiki,
+.slidev-layout pre[class*="language-"] {
+  background: #f8fafc !important;
+  background-color: #f8fafc !important;
+  color: #1e293b !important;
+  border-radius: 10px !important;
+}
+
+/* 代码内部也强制浅色，不允许继承黑底 */
+.slidev-code code,
+.shiki code,
+.slidev-layout pre code,
+.slidev-layout .shiki code {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #1e293b !important;
+}
+
+/* Shiki 的每个 token span 也强制可读 */
+.slidev-code span,
+.shiki span,
+.slidev-layout pre code span,
+.slidev-layout .shiki span {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #1e293b !important;
+}
+
+/* 暗色模式下也不许变黑 */
+.dark .slidev-code-wrapper,
+.dark .slidev-code,
+.dark .shiki,
+.dark .shiki-container,
+.dark .slidev-layout .shiki,
+.dark .slidev-layout .slidev-code,
+.dark .slidev-layout .slidev-code-wrapper,
+.dark .slidev-layout pre,
+.dark .slidev-layout pre.shiki,
+.dark .slidev-layout pre[class*="language-"] {
+  background: #f8fafc !important;
+  background-color: #f8fafc !important;
+  color: #1e293b !important;
+}
+
+/* 代码块边框和阴影 */
+.slidev-code-wrapper,
+.slidev-layout pre {
+  border: 1px solid rgba(15, 118, 110, 0.18) !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08) !important;
+}
+
+/* 行内代码继续保持浅色小标签 */
+.slidev-layout :not(pre) > code {
+  color: #0f4f59 !important;
+  background: rgba(15, 118, 110, 0.10) !important;
+  border: 1px solid rgba(15, 118, 110, 0.18) !important;
+  border-radius: 6px !important;
+  padding: 0.05rem 0.28rem !important;
+  font-weight: 800 !important;
+}
