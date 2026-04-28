@@ -91,3 +91,15 @@
 .tight li {
   margin: 0.1rem 0;
 }
+/*
+  Hide Slidev's built-in bottom-left navigation/progress toolbar.
+  The slides can still be read normally and switched with keyboard arrows.
+*/
+#page-root nav {
+  display: none !important;
+}
+
+#page-root .absolute.bottom-0.left-0 {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
