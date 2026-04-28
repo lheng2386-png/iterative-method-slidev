@@ -247,3 +247,7 @@
     font-size: 0.96rem;
   }
 }
+/* 只隐藏 Goto 跳转框，不影响底部导航、左右箭头、九宫格 */
+#slidev-goto-dialog {
+  display: none !important;
+}
