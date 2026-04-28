@@ -3,51 +3,116 @@
   --ink: #172033;
   --muted: #64748b;
   --accent: #d97706;
-  --soft: #eef7f6;
+  --red: #d62828;
+  --red-dark: #c1121f;
   --title: #0f4f59;
   --formula: #0f766e;
+  --code-bg: #f8fafc;
+  --code-text: #1e293b;
+}
+
+/* ===== 全局浅色与基础字体 ===== */
+html,
+body,
+#app,
+#page-root {
+  color-scheme: light !important;
 }
 
 .slidev-layout {
-  color: var(--ink);
+  color: var(--ink) !important;
   font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   background:
     linear-gradient(90deg, rgba(15, 118, 110, 0.08), transparent 34%),
-    linear-gradient(180deg, #ffffff 0%, #f8fbfb 100%);
+    linear-gradient(180deg, #ffffff 0%, #f8fbfb 100%) !important;
 }
 
 .slidev-layout h1 {
-  color: var(--title);
+  color: var(--title) !important;
   font-weight: 850;
 }
 
 .slidev-layout h2,
 .slidev-layout h3 {
-  color: #164e63;
+  color: #164e63 !important;
   font-weight: 780;
 }
 
 .slidev-layout p,
-.slidev-layout li {
-  color: var(--ink);
+.slidev-layout li,
+.slidev-layout td,
+.slidev-layout th {
+  color: var(--ink) !important;
   line-height: 1.55;
 }
 
 .slidev-layout strong {
-  color: var(--accent);
+  color: var(--accent) !important;
   font-weight: 850;
 }
 
+/* ===== 代码块：浅色背景 ===== */
 .slidev-layout code,
 .slidev-layout pre {
   font-family: "JetBrains Mono", "Fira Code", monospace;
 }
 
 .slidev-layout pre {
-  border: 1px solid rgba(15, 118, 110, 0.16);
-  box-shadow: 0 10px 30px rgba(17, 32, 51, 0.08);
+  background: var(--code-bg) !important;
+  background-color: var(--code-bg) !important;
+  color: var(--code-text) !important;
+  border: 1px solid rgba(15, 118, 110, 0.18) !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08) !important;
+  border-radius: 10px !important;
 }
 
+.slidev-layout pre code {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: var(--code-text) !important;
+}
+
+.slidev-layout pre code span {
+  color: var(--code-text) !important;
+}
+
+/* 行内代码：a、b、c 这种小代码 */
+.slidev-layout :not(pre) > code {
+  color: #0f4f59 !important;
+  background: rgba(15, 118, 110, 0.10) !important;
+  border: 1px solid rgba(15, 118, 110, 0.18) !important;
+  border-radius: 6px !important;
+  padding: 0.05rem 0.28rem !important;
+  font-weight: 800 !important;
+}
+
+/* ===== 暗色模式下也强制代码块浅色 ===== */
+.dark .slidev-layout pre,
+.dark .slidev-layout pre code,
+.dark .slidev-layout pre code span {
+  background: var(--code-bg) !important;
+  background-color: var(--code-bg) !important;
+  color: var(--code-text) !important;
+}
+
+.dark .slidev-layout {
+  color: var(--ink) !important;
+  background:
+    linear-gradient(90deg, rgba(15, 118, 110, 0.08), transparent 34%),
+    linear-gradient(180deg, #ffffff 0%, #f8fbfb 100%) !important;
+}
+
+.dark .slidev-layout h1,
+.dark .slidev-layout h2,
+.dark .slidev-layout h3,
+.dark .slidev-layout p,
+.dark .slidev-layout li,
+.dark .slidev-layout td,
+.dark .slidev-layout th {
+  color: var(--ink) !important;
+}
+
+/* ===== 重点色与标题辅助 ===== */
 .kicker {
   color: var(--accent);
   font-weight: 800;
@@ -56,32 +121,160 @@
   font-size: 0.85rem;
 }
 
-.note {
-  border-left: 5px solid var(--accent);
-  padding-left: 1rem;
-  color: #344256;
-}
-
-.highlight {
-  color: var(--accent);
+.red {
+  color: var(--red) !important;
   font-weight: 850;
 }
 
+.red-soft {
+  color: var(--red-dark) !important;
+  font-weight: 780;
+}
+
+.blue-key,
 .key {
-  color: var(--title);
+  color: var(--title) !important;
   font-weight: 850;
 }
 
 .muted {
-  color: var(--muted);
+  color: var(--muted) !important;
 }
 
 .formula {
-  color: var(--formula);
+  color: var(--formula) !important;
   font-size: 1.25rem;
   font-weight: 800;
 }
 
+.highlight {
+  color: var(--accent) !important;
+  font-weight: 850;
+}
+
+/* ===== 普通提示框 ===== */
+.note {
+  border-left: 5px solid var(--accent);
+  padding-left: 1rem;
+  color: #344256 !important;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* ===== 红色重点框 ===== */
+.mark-box {
+  border: 2px solid rgba(214, 40, 40, 0.75);
+  border-radius: 14px;
+  padding: 0.7rem 0.9rem;
+  background: rgba(255, 248, 248, 0.96) !important;
+  color: #172033 !important;
+  box-shadow: 0 8px 18px rgba(214, 40, 40, 0.08);
+}
+
+/* ===== 手写批注风格 ===== */
+.hand-note {
+  display: inline-block;
+  color: var(--red-dark) !important;
+  font-weight: 700;
+  transform: rotate(-2deg);
+  border-bottom: 2px dashed rgba(209, 40, 40, 0.55);
+  padding: 0 0.15rem;
+}
+
+/* ===== 红色圈圈重点 ===== */
+.circle-red {
+  display: inline-block;
+  padding: 0.05rem 0.45rem;
+  border: 2.5px solid var(--red);
+  border-radius: 999px;
+  color: var(--red) !important;
+  font-weight: 850;
+  transform: rotate(-4deg);
+}
+
+.circle-red-sm {
+  display: inline-block;
+  padding: 0.02rem 0.35rem;
+  border: 2px solid var(--red);
+  border-radius: 999px;
+  color: var(--red) !important;
+  font-weight: 800;
+  transform: rotate(-6deg);
+}
+
+/* ===== 像老师课件那种圈圈画画 ===== */
+.scribble-box {
+  position: relative;
+  border: 2px dashed rgba(214, 40, 40, 0.65);
+  border-radius: 18px;
+  padding: 0.7rem 0.9rem;
+  background: rgba(255, 248, 248, 0.96) !important;
+  color: #172033 !important;
+}
+
+.scribble-box::after {
+  content: "";
+  position: absolute;
+  inset: -6px -8px -5px -7px;
+  border: 2px solid rgba(214, 40, 40, 0.22);
+  border-radius: 22px;
+  transform: rotate(-1.8deg);
+  pointer-events: none;
+}
+
+/* ===== 箭头批注 ===== */
+.arrow-note {
+  position: relative;
+  display: inline-block;
+  color: var(--red-dark) !important;
+  font-weight: 800;
+  margin-left: 1.2rem;
+}
+
+.arrow-note::before {
+  content: "↘";
+  position: absolute;
+  left: -1.1rem;
+  top: -0.02rem;
+  color: var(--red);
+  font-weight: 900;
+  font-size: 1rem;
+}
+
+/* ===== 公式旁边的重点标注 ===== */
+.formula-note {
+  margin-top: 0.4rem;
+  color: var(--red-dark) !important;
+  font-size: 0.92rem;
+  font-weight: 750;
+}
+
+/* ===== 流程图小节点 ===== */
+.flow-mini {
+  margin: 1.2rem auto;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  align-items: center;
+  color: #0f4f59;
+  font-size: 1.05rem;
+  font-weight: 750;
+}
+
+.flow-mini span.step {
+  padding: 0.3rem 1rem;
+  border-radius: 999px;
+  background: rgba(15, 118, 110, 0.09);
+  border: 1px solid rgba(15, 118, 110, 0.18);
+}
+
+.flow-mini span.arrow {
+  color: var(--red);
+  font-weight: 900;
+  font-size: 1rem;
+}
+
+/* ===== 布局辅助 ===== */
 .two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -107,135 +300,13 @@
 .tight li {
   margin: 0.1rem 0;
 }
-/* ===== 强调色：红色重点 ===== */
-.red {
-  color: #d62828;
-  font-weight: 850;
+
+/* ===== 只隐藏 Goto 跳转框，不影响底部导航、左右箭头、九宫格 ===== */
+#slidev-goto-dialog {
+  display: none !important;
 }
 
-.red-soft {
-  color: #c1121f;
-  font-weight: 780;
-}
-
-.blue-key {
-  color: #0f4f59;
-  font-weight: 850;
-}
-
-/* ===== 手写批注风格 ===== */
-.hand-note {
-  display: inline-block;
-  color: #c1121f;
-  font-weight: 700;
-  transform: rotate(-2deg);
-  border-bottom: 2px dashed rgba(209, 40, 40, 0.55);
-  padding: 0 0.15rem;
-}
-
-/* ===== 红色圈圈重点 ===== */
-.circle-red {
-  display: inline-block;
-  padding: 0.05rem 0.45rem;
-  border: 2.5px solid #d62828;
-  border-radius: 999px;
-  color: #d62828;
-  font-weight: 850;
-  transform: rotate(-4deg);
-}
-
-.circle-red-sm {
-  display: inline-block;
-  padding: 0.02rem 0.35rem;
-  border: 2px solid #d62828;
-  border-radius: 999px;
-  color: #d62828;
-  font-weight: 800;
-  transform: rotate(-6deg);
-}
-
-/* ===== 红框重点块 ===== */
-.mark-box {
-  border: 2px solid rgba(214, 40, 40, 0.75);
-  border-radius: 14px;
-  padding: 0.7rem 0.9rem;
-  background: rgba(214, 40, 40, 0.04);
-  box-shadow: 0 8px 18px rgba(214, 40, 40, 0.08);
-}
-
-/* ===== 像老师课件那种圈圈画画 ===== */
-.scribble-box {
-  position: relative;
-  border: 2px dashed rgba(214, 40, 40, 0.65);
-  border-radius: 18px;
-  padding: 0.7rem 0.9rem;
-  background: rgba(255, 248, 248, 0.9);
-}
-
-.scribble-box::after {
-  content: "";
-  position: absolute;
-  inset: -6px -8px -5px -7px;
-  border: 2px solid rgba(214, 40, 40, 0.22);
-  border-radius: 22px;
-  transform: rotate(-1.8deg);
-  pointer-events: none;
-}
-
-/* ===== 箭头批注 ===== */
-.arrow-note {
-  position: relative;
-  display: inline-block;
-  color: #c1121f;
-  font-weight: 800;
-  margin-left: 1.2rem;
-}
-
-.arrow-note::before {
-  content: "↘";
-  position: absolute;
-  left: -1.1rem;
-  top: -0.02rem;
-  color: #d62828;
-  font-weight: 900;
-  font-size: 1rem;
-}
-
-/* ===== 流程图小节点 ===== */
-.flow-mini {
-  margin: 1.2rem auto;
-  max-width: 560px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.28rem;
-  align-items: center;
-  color: #0f4f59;
-  font-size: 1.05rem;
-  font-weight: 750;
-}
-
-.flow-mini span.step {
-  padding: 0.3rem 1rem;
-  border-radius: 999px;
-  background: rgba(15, 118, 110, 0.09);
-  border: 1px solid rgba(15, 118, 110, 0.18);
-}
-
-.flow-mini span.arrow {
-  color: #d62828;
-  font-weight: 900;
-  font-size: 1rem;
-}
-
-/* ===== 适合公式旁边的重点标注 ===== */
-.formula-note {
-  margin-top: 0.4rem;
-  color: #c1121f;
-  font-size: 0.92rem;
-  font-weight: 750;
-}
-
-/* ===== 手机上更稳一点 ===== */
+/* ===== 手机端更稳 ===== */
 @media (max-width: 900px) {
   .mark-box,
   .scribble-box {
@@ -246,221 +317,4 @@
     max-width: 92%;
     font-size: 0.96rem;
   }
-}
-/* 只隐藏 Goto 跳转框，不影响底部导航、左右箭头、九宫格 */
-#slidev-goto-dialog {
-  display: none !important;
-}
-/* ===== 修复夜间模式 / inline code 字体消失问题 ===== */
-
-/* 强制整体课件保持浅色阅读体验 */
-html,
-body,
-#app,
-#page-root {
-  color-scheme: light !important;
-}
-
-/* 修复 `a`、`b`、`c` 这种行内代码在暗色模式下变黑块 */
-.slidev-layout :not(pre) > code {
-  color: #0f4f59 !important;
-  background: rgba(15, 118, 110, 0.10) !important;
-  border: 1px solid rgba(15, 118, 110, 0.18);
-  border-radius: 6px;
-  padding: 0.05rem 0.28rem;
-  font-weight: 800;
-}
-
-/* 修复代码块在暗色模式下文字看不清 */
-.slidev-layout pre,
-.slidev-layout pre code {
-  color: #e5e7eb !important;
-  background: #111827 !important;
-}
-
-/* 修复红框、批注框在夜间模式下被整体压暗 */
-.mark-box,
-.scribble-box {
-  color: #172033 !important;
-  background: rgba(255, 248, 248, 0.96) !important;
-}
-
-/* 修复 note 文字在夜间模式下发灰甚至看不清 */
-.note {
-  color: #344256 !important;
-  background: rgba(255, 255, 255, 0.45);
-}
-
-/* 修复列表文字 */
-.slidev-layout li,
-.slidev-layout p {
-  color: #172033 !important;
-}
-
-/* 修复标题颜色 */
-.slidev-layout h1,
-.slidev-layout h2,
-.slidev-layout h3 {
-  color: #0f4f59 !important;
-}
-/* ===== 强制浅色模式，防止默认黑色模式 ===== */
-html,
-body,
-#app,
-#page-root,
-.slidev-layout,
-.slidev-page,
-.slidev-page-root {
-  color-scheme: light !important;
-  background: #ffffff !important;
-}
-
-html.dark,
-html.dark body,
-html.dark #app,
-html.dark #page-root {
-  background: #ffffff !important;
-}
-
-.dark .slidev-layout {
-  color: #172033 !important;
-  background:
-    linear-gradient(90deg, rgba(15, 118, 110, 0.08), transparent 34%),
-    linear-gradient(180deg, #ffffff 0%, #f8fbfb 100%) !important;
-}
-
-.dark .slidev-layout h1,
-.dark .slidev-layout h2,
-.dark .slidev-layout h3,
-.dark .slidev-layout p,
-.dark .slidev-layout li {
-  color: #172033 !important;
-}
-
-.dark .note,
-.dark .mark-box,
-.dark .scribble-box {
-  color: #172033 !important;
-  background: rgba(255, 248, 248, 0.96) !important;
-}
-
-.dark .slidev-layout :not(pre) > code {
-  color: #0f4f59 !important;
-  background: rgba(15, 118, 110, 0.10) !important;
-}
-/* ===== 彻底强制浅色模式 ===== */
-
-html,
-html.light,
-html.dark,
-body,
-body.light,
-body.dark,
-#app,
-#page-root {
-  color-scheme: light !important;
-  background: #ffffff !important;
-}
-
-html.dark *,
-body.dark * {
-  color-scheme: light !important;
-}
-
-.dark .slidev-layout,
-.light .slidev-layout,
-.slidev-layout {
-  color: #172033 !important;
-  background:
-    linear-gradient(90deg, rgba(15, 118, 110, 0.08), transparent 34%),
-    linear-gradient(180deg, #ffffff 0%, #f8fbfb 100%) !important;
-}
-
-.dark .slidev-layout h1,
-.dark .slidev-layout h2,
-.dark .slidev-layout h3 {
-  color: #0f4f59 !important;
-}
-
-.dark .slidev-layout p,
-.dark .slidev-layout li,
-.dark .slidev-layout td,
-.dark .slidev-layout th {
-  color: #172033 !important;
-}
-
-.dark .note,
-.dark .mark-box,
-.dark .scribble-box {
-  color: #172033 !important;
-  background: rgba(255, 248, 248, 0.96) !important;
-}
-
-.dark .red,
-.dark .red-soft,
-.dark .formula-note,
-.dark .hand-note,
-.dark .arrow-note {
-  color: #d62828 !important;
-}
-
-.dark .circle-red,
-.dark .circle-red-sm {
-  color: #d62828 !important;
-  border-color: #d62828 !important;
-}
-
-.dark .slidev-layout :not(pre) > code {
-  color: #0f4f59 !important;
-  background: rgba(15, 118, 110, 0.10) !important;
-  border: 1px solid rgba(15, 118, 110, 0.18) !important;
-}
-
-.dark .slidev-layout pre,
-.dark .slidev-layout pre code {
-  color: #e5e7eb !important;
-  background: #111827 !important;
-}
-
-/* 把页面外侧黑底也压成浅色 */
-#page-root,
-#slide-content,
-.slidev-page,
-.slidev-page-root,
-.slidev-presenter,
-.slidev-layout-container {
-  background: #ffffff !important;
-}
-/* 强制播放器外层背景也变白 */
-html,
-body,
-#app,
-#page-root,
-#slidev-root,
-#slide-content,
-.slidev-page,
-.slidev-page-root,
-.slidev-layout-container,
-.slidev-slide-container,
-.slidev-wrapper,
-main {
-  background: #ffffff !important;
-  color-scheme: light !important;
-}
-
-/* 强制 dark 类也显示浅色 */
-html.dark,
-html.dark body,
-html.dark #app,
-html.dark #page-root,
-html.dark .slidev-layout {
-  background: #ffffff !important;
-  color-scheme: light !important;
-}
-
-/* 保证页面内容还是浅色 */
-.slidev-layout {
-  background:
-    linear-gradient(90deg, rgba(15, 118, 110, 0.08), transparent 34%),
-    linear-gradient(180deg, #ffffff 0%, #f8fbfb 100%) !important;
 }
