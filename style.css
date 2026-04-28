@@ -91,11 +91,3 @@
 .tight li {
   margin: 0.1rem 0;
 }
-/*
-  Hide Slidev's built-in bottom-left navigation/progress toolbar.
-  The slides can still be read normally and switched with keyboard arrows.
-*/
-/* 只隐藏那个关不掉的 Goto 跳转弹窗，不隐藏底部导航栏 */
-#slidev-goto-dialog {
-  display: none !important;
-}
