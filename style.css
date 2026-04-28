@@ -348,3 +348,86 @@ html.dark #page-root {
   color: #0f4f59 !important;
   background: rgba(15, 118, 110, 0.10) !important;
 }
+/* ===== 彻底强制浅色模式 ===== */
+
+html,
+html.light,
+html.dark,
+body,
+body.light,
+body.dark,
+#app,
+#page-root {
+  color-scheme: light !important;
+  background: #ffffff !important;
+}
+
+html.dark *,
+body.dark * {
+  color-scheme: light !important;
+}
+
+.dark .slidev-layout,
+.light .slidev-layout,
+.slidev-layout {
+  color: #172033 !important;
+  background:
+    linear-gradient(90deg, rgba(15, 118, 110, 0.08), transparent 34%),
+    linear-gradient(180deg, #ffffff 0%, #f8fbfb 100%) !important;
+}
+
+.dark .slidev-layout h1,
+.dark .slidev-layout h2,
+.dark .slidev-layout h3 {
+  color: #0f4f59 !important;
+}
+
+.dark .slidev-layout p,
+.dark .slidev-layout li,
+.dark .slidev-layout td,
+.dark .slidev-layout th {
+  color: #172033 !important;
+}
+
+.dark .note,
+.dark .mark-box,
+.dark .scribble-box {
+  color: #172033 !important;
+  background: rgba(255, 248, 248, 0.96) !important;
+}
+
+.dark .red,
+.dark .red-soft,
+.dark .formula-note,
+.dark .hand-note,
+.dark .arrow-note {
+  color: #d62828 !important;
+}
+
+.dark .circle-red,
+.dark .circle-red-sm {
+  color: #d62828 !important;
+  border-color: #d62828 !important;
+}
+
+.dark .slidev-layout :not(pre) > code {
+  color: #0f4f59 !important;
+  background: rgba(15, 118, 110, 0.10) !important;
+  border: 1px solid rgba(15, 118, 110, 0.18) !important;
+}
+
+.dark .slidev-layout pre,
+.dark .slidev-layout pre code {
+  color: #e5e7eb !important;
+  background: #111827 !important;
+}
+
+/* 把页面外侧黑底也压成浅色 */
+#page-root,
+#slide-content,
+.slidev-page,
+.slidev-page-root,
+.slidev-presenter,
+.slidev-layout-container {
+  background: #ffffff !important;
+}
