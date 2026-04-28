@@ -251,3 +251,55 @@
 #slidev-goto-dialog {
   display: none !important;
 }
+/* ===== 修复夜间模式 / inline code 字体消失问题 ===== */
+
+/* 强制整体课件保持浅色阅读体验 */
+html,
+body,
+#app,
+#page-root {
+  color-scheme: light !important;
+}
+
+/* 修复 `a`、`b`、`c` 这种行内代码在暗色模式下变黑块 */
+.slidev-layout :not(pre) > code {
+  color: #0f4f59 !important;
+  background: rgba(15, 118, 110, 0.10) !important;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: 6px;
+  padding: 0.05rem 0.28rem;
+  font-weight: 800;
+}
+
+/* 修复代码块在暗色模式下文字看不清 */
+.slidev-layout pre,
+.slidev-layout pre code {
+  color: #e5e7eb !important;
+  background: #111827 !important;
+}
+
+/* 修复红框、批注框在夜间模式下被整体压暗 */
+.mark-box,
+.scribble-box {
+  color: #172033 !important;
+  background: rgba(255, 248, 248, 0.96) !important;
+}
+
+/* 修复 note 文字在夜间模式下发灰甚至看不清 */
+.note {
+  color: #344256 !important;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* 修复列表文字 */
+.slidev-layout li,
+.slidev-layout p {
+  color: #172033 !important;
+}
+
+/* 修复标题颜色 */
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3 {
+  color: #0f4f59 !important;
+}
