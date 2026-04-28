@@ -17,7 +17,7 @@ css: ./style.css
 
 <div class="kicker">Iteration Method</div>
 
-<div class="note">
+<div class="scribble-box">
 从“重复计算”到“逐步逼近”：理解算法中最基础、最常见的一类思维方式。
 </div>
 
@@ -36,8 +36,8 @@ layout: default
 - 数值问题：无法直接求精确解，只能逐步逼近
 - 程序实现：循环结构天然适合表达迭代过程
 
-<div class="note">
-迭代思想的本质：把复杂问题拆成一系列重复的小步骤。
+<div class="mark-box">
+迭代思想的本质：把复杂问题拆成一系列<span class="red">重复的小步骤</span>。
 </div>
 
 ---
@@ -48,9 +48,9 @@ layout: default
 
 学完本节后，你应该能回答 4 个问题：
 
-1. 什么是迭代算法？
+1. 什么是<span class="circle-red-sm">迭代算法</span>？
 2. 递推法和倒推法有什么区别？
-3. 如何根据问题建立迭代关系式？
+3. 如何根据问题建立<span class="red">迭代关系式</span>？
 4. 如何用迭代思想求方程的近似根？
 
 <div class="note">
@@ -65,7 +65,7 @@ layout: default
 
 本章内容包括：
 
-- 4.1 **迭代算法** ← 本课重点
+- 4.1 <span class="red">迭代算法</span> ← 本课重点
 - 4.2 蛮力法
 - 4.3 分而治之算法
 - 4.4 贪婪算法
@@ -82,7 +82,7 @@ layout: default
 
 # 4.1 迭代算法
 
-基本思想：**用旧值计算新值**。
+基本思想：<span class="circle-red">用旧值计算新值</span>。
 
 迭代算法常用于：
 
@@ -94,9 +94,9 @@ layout: default
 基本步骤：
 
 1. 确定初始状态
-2. 建立迭代关系式
+2. 建立<span class="red">迭代关系式</span>
 3. 重复更新状态
-4. 根据停止条件结束循环
+4. 根据<span class="red">停止条件</span>结束循环
 
 ---
 layout: default
@@ -105,20 +105,23 @@ class: text-center
 
 # 迭代算法总流程
 
-```text
-确定初始状态
-      ↓
-建立迭代关系式
-      ↓
-根据旧值计算新值
-      ↓
-判断是否满足停止条件
-      ↓
-输出结果
-```
+<div class="flow-mini">
 
-<div class="note">
-迭代算法的核心不是某一个公式，而是“状态不断更新”的过程。
+<span class="step">确定初始状态</span>
+<span class="arrow">↓</span>
+<span class="step">建立迭代关系式</span>
+<span class="arrow">↓</span>
+<span class="step">根据旧值计算新值</span>
+<span class="arrow">↓</span>
+<span class="step"><span class="circle-red-sm">判断停止条件</span></span>
+<span class="arrow">↓</span>
+<span class="step">输出结果</span>
+
+</div>
+
+<div class="scribble-box">
+迭代算法的核心不是某一个公式，而是<span class="red">状态不断更新</span>的过程。
+<div class="formula-note">↘ 考试、作业、编程实现时，这一句往往就是“本质”。</div>
 </div>
 
 ---
@@ -130,9 +133,9 @@ class: text-center
 
 | 类型 | 核心思想 | 常见问题 |
 |---|---|---|
-| 递推法 | 已知前面，推出后面 | 兔子繁殖、最大公约数 |
-| 倒推法 | 已知结果，反推开始 | 猴子吃桃、穿越沙漠 |
-| 迭代求根 | 从猜测值出发，逐步逼近 | 牛顿法、二分法 |
+| <span class="red">递推法</span> | 已知前面，推出后面 | 兔子繁殖、最大公约数 |
+| <span class="red">倒推法</span> | 已知结果，反推开始 | 猴子吃桃、穿越沙漠 |
+| <span class="red">迭代求根</span> | 从猜测值出发，逐步逼近 | 牛顿法、二分法 |
 
 <div class="note">
 本课主线：先理解“状态如何更新”，再看不同问题中更新方向有什么变化。
@@ -147,7 +150,7 @@ class: text-center
 
 <div class="kicker">Forward Recurrence</div>
 
-递推法：**从已知状态出发，一步步推出后续状态。**
+递推法：<span class="circle-red">从已知状态出发</span>，一步步推出后续状态。
 
 常见特点：
 
@@ -155,7 +158,7 @@ class: text-center
 - 能写出相邻状态之间的关系
 - 通过循环不断向后计算
 
-<div class="note">
+<div class="scribble-box">
 大白话：知道前面怎么算后面。
 </div>
 
@@ -165,7 +168,7 @@ layout: default
 
 # 4.1.1 递推法：兔子繁殖问题
 
-一对兔子从出生后第三个月开始，每月生一对小兔子。小兔子到第三个月又开始生下一代小兔子。若兔子只生不死，一月份抱来一对刚出生的小兔子，问一年中每个月各有多少**对**兔子。
+一对兔子从出生后第三个月开始，每月生一对小兔子。小兔子到第三个月又开始生下一代小兔子。若兔子只生不死，一月份抱来一对刚出生的小兔子，问一年中每个月各有多少<span class="red">对</span>兔子。
 
 月份与兔子对数：
 
@@ -179,6 +182,10 @@ $$
 y_1 = y_2 = 1,\quad y_n = y_{n-1} + y_{n-2},\quad n \ge 3
 $$
 
+<div class="formula-note">
+<span class="hand-note">注意</span>：这里是“兔子对数”，不是“兔子只数”。
+</div>
+
 ---
 layout: two-cols
 ---
@@ -191,11 +198,15 @@ $$
 y_n = y_{n-1} + y_{n-2}
 $$
 
+<div class="mark-box">
+
 变量含义：
 
 - `a`：前 2 个月的兔子对数
 - `b`：前 1 个月的兔子对数
 - `c`：当前月份的兔子对数
+
+</div>
 
 变量更新关系：
 
@@ -222,8 +233,8 @@ main()
 }
 ```
 
-<div class="note small">
-优点：写法最直观，适合初学者理解递推思想。
+<div class="formula-note">
+<span class="arrow-note">关键：</span>每轮只生成一个新值，最直观。
 </div>
 
 ---
@@ -232,7 +243,9 @@ layout: two-cols
 
 # 递推算法 2：每轮生成 3 个新值
 
-这个写法利用连续更新，一轮循环产生 3 个斐波那契数。
+一次循环连续递推 <span class="circle-red">3 步</span>。
+
+<div class="mark-box">
 
 变量更新关系：
 
@@ -241,6 +254,8 @@ c = a + b
 a = b + c
 b = c + a
 ```
+
+</div>
 
 如果要按自然顺序输出，应输出：
 
@@ -257,20 +272,15 @@ main()
   print(a, b);
 
   for (i = 1; i <= 4; i++) {
-    c = a + b;
-    print(c);
-
-    a = b + c;
-    print(a);
-
-    b = c + a;
-    print(b);
+    c = a + b; print(c);
+    a = b + c; print(a);
+    b = c + a; print(b);
   }
 }
 ```
 
-<div class="note small">
-优点：循环次数更少；缺点：更新顺序更复杂。
+<div class="formula-note">
+<span class="hand-note">注意</span>：更新顺序不能乱，初学时优先掌握算法 1。
 </div>
 
 ---
@@ -279,7 +289,7 @@ layout: two-cols
 
 # 递推算法 3：每轮生成 2 个新值
 
-该写法每轮循环产生 2 个新值。
+该写法每轮循环产生 <span class="circle-red-sm">2 个新值</span>。
 
 变量更新关系：
 
@@ -293,6 +303,10 @@ b = a + b
 ```text
 a, b
 ```
+
+<div class="note small">
+三种写法本质相同，都是用前两项推出后一项。
+</div>
 
 ::right::
 
@@ -312,8 +326,8 @@ main()
 }
 ```
 
-<div class="note small">
-三种写法本质相同，都是用前两项推出后一项。
+<div class="formula-note">
+<span class="arrow-note">核心</span>：变量保存的是“当前递推状态”。
 </div>
 
 ---
@@ -327,7 +341,7 @@ layout: default
 常见方法：
 
 1. 短除法
-2. 辗转相除法，也称欧几里得算法
+2. <span class="red">辗转相除法</span>，也称欧几里得算法
 
 核心递推关系：
 
@@ -347,6 +361,10 @@ $$
 \gcd(a,b)=a
 $$
 
+<div class="scribble-box">
+关键理解：每次把问题变小，但最大公约数不变。
+</div>
+
 ---
 layout: two-cols
 ---
@@ -365,7 +383,7 @@ b = c
 
 - 每次用余数替换较小问题
 - 最大公约数不变
-- 余数最终变为 0
+- 余数最终变为 <span class="circle-red-sm">0</span>
 
 ::right::
 
@@ -393,8 +411,8 @@ main()
 }
 ```
 
-<div class="note small">
-相比直接枚举因子，欧几里得算法效率更高。
+<div class="formula-note">
+<span class="arrow-note">比枚举更强</span>：不断缩小问题规模。
 </div>
 
 ---
@@ -406,13 +424,12 @@ class: text-center
 
 | 方法 | 推导方向 | 已知条件 | 典型例子 |
 |---|---|---|---|
-| 递推法 | 从前往后 | 初始状态 | 兔子繁殖、最大公约数 |
-| 倒推法 | 从后往前 | 最终状态 | 猴子吃桃、穿越沙漠 |
+| <span class="red">递推法</span> | 从前往后 | 初始状态 | 兔子繁殖、最大公约数 |
+| <span class="red">倒推法</span> | 从后往前 | 最终状态 | 猴子吃桃、穿越沙漠 |
 
-<div class="note">
+<div class="mark-box">
 判断方法：如果题目给的是“起点”，通常用递推；如果题目给的是“最终结果”，通常考虑倒推。
 </div>
-
 ---
 layout: default
 class: text-center
@@ -422,7 +439,7 @@ class: text-center
 
 <div class="kicker">Backward Iteration</div>
 
-倒推法：**从结果出发，反向恢复初始状态。**
+倒推法：<span class="circle-red">从结果出发</span>，反向恢复初始状态。
 
 常见特点：
 
@@ -430,7 +447,7 @@ class: text-center
 - 正向推导不方便
 - 反向关系更容易建立
 
-<div class="note">
+<div class="scribble-box">
 大白话：知道最后变成什么样，再倒着算最开始是什么样。
 </div>
 
@@ -453,6 +470,10 @@ layout: two-cols
 $$
 a_i=(a_{i+1}+1)\times 2,\quad i=9,8,7,\ldots,1
 $$
+
+<div class="formula-note">
+<span class="arrow-note">关键</span>：从第 10 天的 1 个桃子开始反推。
+</div>
 
 ::right::
 
@@ -500,7 +521,9 @@ $$
 a[i][j]=a[i-1][j-1]+a[i-1][j]
 $$
 
-如果用一维数组，需要避免新值覆盖旧值。
+<div class="mark-box">
+如果用一维数组，需要避免<span class="red">新值覆盖旧值</span>。
+</div>
 
 ::right::
 
@@ -518,8 +541,8 @@ A[j] = A[j-1] + A[j]
 j = i-1,i-2,...,2
 ```
 
-<div class="note small">
-关键点：从右向左更新，保证 A[j-1] 仍然是上一行的旧值。
+<div class="formula-note">
+<span class="hand-note">重点</span>：从右向左更新。
 </div>
 
 ---
@@ -547,6 +570,10 @@ layout: two-cols
 1 3 3 1
 1 4 6 4 1
 ```
+
+<div class="formula-note">
+<span class="arrow-note">原因</span>：倒向更新能保留上一行旧值。
+</div>
 
 ::right::
 
@@ -583,11 +610,11 @@ layout: default
 
 但终点附近很清楚：
 
-- 最后一段最多只需要 500 加仑油
-- 最后一段最多能走 500 公里
+- 最后一段最多只需要 <span class="red">500 加仑</span>油
+- 最后一段最多能走 <span class="red">500 公里</span>
 - 可以从终点向前反推出每一个储油点
 
-<div class="note">
+<div class="scribble-box">
 所以这个问题从终点开始倒推，比从起点正推更容易建立模型。
 </div>
 
@@ -654,6 +681,10 @@ $$
           行驶 2k - 1 次
 ```
 
+<div class="formula-note">
+<span class="hand-note">圈重点</span>：倒推时先看离终点最近的一段。
+</div>
+
 ---
 layout: two-cols
 ---
@@ -666,7 +697,9 @@ layout: two-cols
 - 储油点距离
 - 储油量
 
-注意：该问题涉及非整数距离，应使用 `double` 类型。
+<div class="mark-box">
+注意：该问题涉及非整数距离，应使用 <span class="red">double</span> 类型。
+</div>
 
 ::right::
 
@@ -701,14 +734,14 @@ class: text-center
 
 <div class="kicker">Numerical Iteration</div>
 
-迭代求根：**从一个猜测值出发，不断逼近真实解。**
+迭代求根：<span class="circle-red">从一个猜测值出发</span>，不断逼近真实解。
 
 常见方法：
 
 - 牛顿迭代法
 - 二分法
 
-<div class="note">
+<div class="scribble-box">
 大白话：先猜一个答案，再用规则不断修正它。
 </div>
 
@@ -737,6 +770,10 @@ layout: default
 若不满足：令 x0 = x1，继续迭代
 若满足：输出近似根
 ```
+
+<div class="formula-note">
+<span class="arrow-note">关键</span>：初值、迭代关系、停止条件缺一不可。
+</div>
 
 ---
 layout: default
@@ -778,6 +815,10 @@ do {
 } while (c > w && k < maxn);
 ```
 
+<div class="formula-note">
+<span class="hand-note">注意</span>：每轮迭代前误差累计量 `c` 要清零。
+</div>
+
 ---
 layout: two-cols
 ---
@@ -816,6 +857,10 @@ x1 = x0 - f(x0) / f'(x0)
 判断 |x1 - x0| 是否小于精度
 ```
 
+<div class="formula-note">
+<span class="arrow-note">本质</span>：用切线交点更新下一次近似值。
+</div>
+
 ---
 layout: two-cols
 ---
@@ -852,8 +897,8 @@ float f(float a, float b, float c, float d)
 }
 ```
 
-<div class="note small">
-牛顿法收敛快，但需要求导，而且对初值较敏感。
+<div class="formula-note">
+<span class="circle-red-sm">快</span>：牛顿法收敛快，但需要求导，而且对初值较敏感。
 </div>
 
 ---
@@ -893,7 +938,7 @@ $$
 二分法前提：
 
 - $f(x)$ 在区间 $[a,b]$ 上连续
-- $f(a)$ 与 $f(b)$ 异号
+- $f(a)$ 与 $f(b)$ <span class="red">异号</span>
 
 基本思想：
 
@@ -901,6 +946,10 @@ $$
 每次取中点 c = (a + b) / 2
 保留仍然存在根的一半区间
 ```
+
+<div class="formula-note">
+<span class="hand-note">重点</span>：二分法必须先保证区间两端异号。
+</div>
 
 ---
 layout: two-cols
@@ -913,6 +962,10 @@ layout: two-cols
 $$
 |f(x)|<10^{-4}
 $$
+
+<div class="mark-box">
+二分法特点：<span class="red">稳定可靠</span>，但收敛速度比牛顿法慢。
+</div>
 
 ::right::
 
@@ -956,10 +1009,10 @@ class: text-center
 
 | 方法 | 优点 | 缺点 | 适用情况 |
 |---|---|---|---|
-| 牛顿法 | 收敛速度快 | 需要求导，对初值敏感 | 函数可导，初值较好 |
-| 二分法 | 稳定可靠 | 收敛速度较慢 | 已知根所在区间 |
+| <span class="red">牛顿法</span> | 收敛速度快 | 需要求导，对初值敏感 | 函数可导，初值较好 |
+| <span class="red">二分法</span> | 稳定可靠 | 收敛速度较慢 | 已知根所在区间 |
 
-<div class="note">
+<div class="scribble-box">
 选择建议：能求导且初值较好，用牛顿法；只知道根所在区间，用二分法。
 </div>
 
@@ -972,7 +1025,7 @@ class: text-center
 
 迭代算法的关键是：
 
-**初值、关系式、更新过程、停止条件。**
+<span class="circle-red">初值</span>、<span class="circle-red">关系式</span>、<span class="circle-red">更新过程</span>、<span class="circle-red">停止条件</span>。
 
 | 类型 | 一句话总结 |
 |---|---|
@@ -980,8 +1033,8 @@ class: text-center
 | 倒推法 | 知道结果，反推开始 |
 | 迭代求根 | 从猜测值出发，逐步逼近真实解 |
 
-<div class="note">
-迭代算法的本质不是公式堆砌，而是把复杂问题拆成一次又一次的状态更新。
+<div class="mark-box">
+迭代算法的本质不是公式堆砌，而是把复杂问题拆成一次又一次的<span class="red">状态更新</span>。
 </div>
 
 <div class="kicker">End</div>
