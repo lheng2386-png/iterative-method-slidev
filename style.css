@@ -431,3 +431,36 @@ body.dark * {
 .slidev-layout-container {
   background: #ffffff !important;
 }
+/* 强制播放器外层背景也变白 */
+html,
+body,
+#app,
+#page-root,
+#slidev-root,
+#slide-content,
+.slidev-page,
+.slidev-page-root,
+.slidev-layout-container,
+.slidev-slide-container,
+.slidev-wrapper,
+main {
+  background: #ffffff !important;
+  color-scheme: light !important;
+}
+
+/* 强制 dark 类也显示浅色 */
+html.dark,
+html.dark body,
+html.dark #app,
+html.dark #page-root,
+html.dark .slidev-layout {
+  background: #ffffff !important;
+  color-scheme: light !important;
+}
+
+/* 保证页面内容还是浅色 */
+.slidev-layout {
+  background:
+    linear-gradient(90deg, rgba(15, 118, 110, 0.08), transparent 34%),
+    linear-gradient(180deg, #ffffff 0%, #f8fbfb 100%) !important;
+}
