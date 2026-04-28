@@ -95,20 +95,7 @@
   Hide Slidev's built-in bottom-left navigation/progress toolbar.
   The slides can still be read normally and switched with keyboard arrows.
 */
-#page-root nav {
-  display: none !important;
-}
-
-#page-root .absolute.bottom-0.left-0 {
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
+/* 只隐藏那个关不掉的 Goto 跳转弹窗，不隐藏底部导航栏 */
 #slidev-goto-dialog {
-  display: none !important;
-}
-
-#page-root nav,
-#page-root .absolute.bottom-0.left-0,
-.slidev-presenter .grid-section.bottom {
   display: none !important;
 }
